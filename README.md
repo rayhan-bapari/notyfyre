@@ -4,6 +4,7 @@
     <img src="https://img.shields.io/packagist/v/rayhan-bapari/notyfyre.svg" alt="Latest Stable Version">
     <img src="https://img.shields.io/packagist/l/rayhan-bapari/notyfyre.svg" alt="License">
     <img src="https://img.shields.io/packagist/php-v/rayhan-bapari/notyfyre.svg" alt="PHP Version">
+    <img src="https://img.shields.io/packagist/dt/rayhan-bapari/notyfyre.svg" alt="Total Downloads">
 </p>
 
 A beautiful, lightweight toast notification package for Laravel that provides an elegant way to display notifications to your users.
