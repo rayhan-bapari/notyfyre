@@ -5,6 +5,7 @@ All notable changes to `notyfyre` will be documented in this file.
 ## [1.0.0] - 8-8-2025
 
 ### Added
+
 - Initial release
 - Support for PHP 8.0 to 8.4
 - Support for Laravel 9.* to 12.*
@@ -25,6 +26,7 @@ All notable changes to `notyfyre` will be documented in this file.
 - Custom styling options via CSS variables
 
 ### Features
+
 - ✅ Multiple notification types (success, error, warning, info)
 - ✅ 6 positioning options
 - ✅ Auto-close with progress bar
@@ -35,3 +37,7 @@ All notable changes to `notyfyre` will be documented in this file.
 - ✅ Configurable defaults
 - ✅ Beautiful default styling
 - ✅ Responsive design
+
+## [1.0.1] - 25-9-2025
+
+- Remove toastr background color
