@@ -18,8 +18,9 @@ A beautiful, lightweight toast notification package for Laravel that provides an
 - 🎯 Multiple notification types (success, error, warning, info)
 - 🔧 Highly configurable
 - 📍 Multiple positioning options
-- ⏱️ Auto-close with progress bar
+- ⏱️ Auto-close with progress bar at bottom
 - 🎭 Smooth animations
+- ✨ Clean, minimal design with title only
 
 ## Requirements
 
@@ -87,20 +88,20 @@ class ExampleController extends Controller
 {
     public function store()
     {
-        // Using the helper function
-        notyfyre()->success('User created successfully!', 'Success');
+        // Using the helper function (only title needed)
+        notyfyre()->success('User created successfully!');
 
         // Or using the Facade
-        \Notyfyre::error('Something went wrong!', 'Error');
+        \Notyfyre::error('Something went wrong!');
 
         // Different notification types
-        notyfyre()->info('Information message', 'Info');
-        notyfyre()->warning('Warning message', 'Warning');
-        notyfyre()->error('Error message', 'Error');
-        notyfyre()->success('Success message', 'Success');
+        notyfyre()->info('Information message');
+        notyfyre()->warning('Warning message');
+        notyfyre()->error('Error message');
+        notyfyre()->success('Success message');
 
         // With custom options
-        notyfyre()->success('Custom notification', 'Success', [
+        notyfyre()->success('Custom notification', [
             'position' => 'bottom-right',
             'autoClose' => 5000,
             'progress' => false
@@ -114,17 +115,14 @@ class ExampleController extends Controller
 ### In JavaScript
 
 ```javascript
-// Basic usage
-notyfyre.success('Operation completed successfully!', 'Success');
-notyfyre.error('Something went wrong!', 'Error');
-notyfyre.warning('Please check your input!', 'Warning');
-notyfyre.info('Here is some information!', 'Info');
-
-// Without title
-notyfyre.success('Just a message');
+// Basic usage (only title)
+notyfyre.success('Operation completed successfully!');
+notyfyre.error('Something went wrong!');
+notyfyre.warning('Please check your input!');
+notyfyre.info('Here is some information!');
 
 // With custom options
-notyfyre.success('Custom notification', 'Success', {
+notyfyre.success('Custom notification', {
     position: 'bottom-right',
     autoClose: 5000,
     progress: false
@@ -155,7 +153,7 @@ You can customize the default behavior in `config/notyfyre.php`:
 return [
     'position' => 'top-center',
     'auto_close' => 3000, // milliseconds, false to disable
-    'progress' => true,
+    'progress' => true, // Progress bar at bottom
     'include_assets' => true,
     'cdn_mode' => false,
 ];
@@ -175,7 +173,7 @@ notyfyre()
 ### Custom Options Per Notification
 
 ```php
-notyfyre()->success('Message', 'Title', [
+notyfyre()->success('Message', [
     'position' => 'bottom-left',
     'autoClose' => 5000,
     'progress' => false
@@ -209,11 +207,11 @@ $.post('/your-endpoint', data)
 ### PHP Methods
 
 ```php
-// Basic methods
-notyfyre()->success($message, $title = null, $options = [])
-notyfyre()->error($message, $title = null, $options = [])
-notyfyre()->warning($message, $title = null, $options = [])
-notyfyre()->info($message, $title = null, $options = [])
+// Basic methods (title only)
+notyfyre()->success($title, $options = [])
+notyfyre()->error($title, $options = [])
+notyfyre()->warning($title, $options = [])
+notyfyre()->info($title, $options = [])
 
 // Utility methods
 notyfyre()->getNotifications() // Get all notifications
@@ -225,11 +223,11 @@ notyfyre()->setDefaults($options) // Set default options
 ### JavaScript Methods
 
 ```javascript
-// Basic methods
-notyfyre.success(message, title = '', options = {})
-notyfyre.error(message, title = '', options = {})
-notyfyre.warning(message, title = '', options = {})
-notyfyre.info(message, title = '', options = {})
+// Basic methods (title only)
+notyfyre.success(title, options = {})
+notyfyre.error(title, options = {})
+notyfyre.warning(title, options = {})
+notyfyre.info(title, options = {})
 
 // Configuration
 notyfyre.options(options = {}) // Set global options
@@ -248,6 +246,39 @@ The package comes with beautiful default styles, but you can customize them by o
 }
 ```
 
+## What's New in Version 2.0
+
+- ✨ Redesigned with cleaner, more modern UI
+- 🎯 Simplified API - title only (no description needed)
+- 📍 Progress bar moved to bottom for better visibility
+- 🎨 Improved animations and transitions
+- 📱 Better responsive design
+- 🔧 Streamlined configuration
+
+## Upgrading from 1.x to 2.x
+
+### Breaking Changes:
+
+1. **Method signatures changed** - message/description removed:
+   ```php
+   // Old (v1.x)
+   notyfyre()->success('Message', 'Title');
+
+   // New (v2.x)
+   notyfyre()->success('Title');
+   ```
+
+2. **JavaScript API updated**:
+   ```javascript
+   // Old (v1.x)
+   notyfyre.success('Message', 'Title');
+
+   // New (v2.x)
+   notyfyre.success('Title');
+   ```
+
+3. **Progress bar now always at bottom** - `loaderPosition` config removed
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -263,4 +294,3 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ## Support
 
 If you find this package helpful, please give it a ⭐ on GitHub!
-# notyfyre

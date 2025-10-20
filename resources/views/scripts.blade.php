@@ -1,5 +1,5 @@
-@if(config('notyfyre.include_assets', true))
-    @if(config('notyfyre.cdn_mode', false))
+@if (config('notyfyre.include_assets', true))
+    @if (config('notyfyre.cdn_mode', false))
         {{-- You can add CDN links here if available --}}
         <script src="{{ asset('vendor/notyfyre/js/notyfyre.min.js') }}"></script>
     @else
@@ -19,30 +19,29 @@
             return this;
         },
 
-        success: function(message, title = '', options = {}) {
-            this._show('success', message, title, options);
+        success: function(title = 'Success', options = {}) {
+            this._show('success', title, options);
             return this;
         },
 
-        error: function(message, title = '', options = {}) {
-            this._show('error', message, title, options);
+        error: function(title = 'Error', options = {}) {
+            this._show('error', title, options);
             return this;
         },
 
-        warning: function(message, title = '', options = {}) {
-            this._show('warning', message, title, options);
+        warning: function(title = 'Warning', options = {}) {
+            this._show('warning', title, options);
             return this;
         },
 
-        info: function(message, title = '', options = {}) {
-            this._show('info', message, title, options);
+        info: function(title = 'Info', options = {}) {
+            this._show('info', title, options);
             return this;
         },
 
-        _show: function(type, message, title, options) {
+        _show: function(type, title, options) {
             const opts = Object.assign({}, this.defaultOptions || {}, {
                 type: type,
-                message: message,
                 title: title
             }, options);
 
@@ -62,16 +61,17 @@
             $notifications = app('notyfyre')->getAndClear();
         @endphp
 
-        @if(count($notifications) > 0)
-            @foreach($notifications as $notification)
+        @if (count($notifications) > 0)
+            @foreach ($notifications as $notification)
                 notyfyre.{{ $notification['type'] }}(
-                    {!! json_encode($notification['message']) !!},
-                    {!! json_encode($notification['title'] ?? '') !!},
-                    {!! json_encode(array_filter([
-                        'position' => $notification['position'] ?? null,
-                        'autoClose' => $notification['autoClose'] ?? null,
-                        'progress' => $notification['progress'] ?? null,
-                    ])) !!}
+                    {!! json_encode($notification['title'] ?? ($notification['message'] ?? 'Notification')) !!},
+                    {!! json_encode(
+                        array_filter([
+                            'position' => $notification['position'] ?? null,
+                            'autoClose' => $notification['autoClose'] ?? null,
+                            'progress' => $notification['progress'] ?? null,
+                        ]),
+                    ) !!}
                 );
             @endforeach
         @endif

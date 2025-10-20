@@ -1,8 +1,16 @@
 {
 	"name": "rayhan-bapari/notyfyre",
-	"description": "A beautiful toast notification package for Laravel",
+	"description": "A beautiful toast notification package for Laravel with modern design and title-only notifications",
 	"type": "library",
 	"license": "MIT",
+	"keywords": [
+		"laravel",
+		"notifications",
+		"toast",
+		"alerts",
+		"flash-messages",
+		"notyfyre"
+	],
 	"authors": [
 		{
 			"name": "Rayhan Bapari",

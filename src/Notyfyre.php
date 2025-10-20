@@ -14,45 +14,44 @@ class Notyfyre
     /**
      * Add a success notification.
      */
-    public function success(string $message, ?string $title = null, array $options = []): self
+    public function success(string $title, array $options = []): self
     {
-        return $this->add('success', $message, $title, $options);
+        return $this->add('success', $title, $options);
     }
 
     /**
      * Add an error notification.
      */
-    public function error(string $message, ?string $title = null, array $options = []): self
+    public function error(string $title, array $options = []): self
     {
-        return $this->add('error', $message, $title, $options);
+        return $this->add('error', $title, $options);
     }
 
     /**
      * Add a warning notification.
      */
-    public function warning(string $message, ?string $title = null, array $options = []): self
+    public function warning(string $title, array $options = []): self
     {
-        return $this->add('warning', $message, $title, $options);
+        return $this->add('warning', $title, $options);
     }
 
     /**
      * Add an info notification.
      */
-    public function info(string $message, ?string $title = null, array $options = []): self
+    public function info(string $title, array $options = []): self
     {
-        return $this->add('info', $message, $title, $options);
+        return $this->add('info', $title, $options);
     }
 
     /**
      * Add a notification to the session.
      */
-    private function add(string $type, string $message, ?string $title = null, array $options = []): self
+    private function add(string $type, string $title, array $options = []): self
     {
         $notifications = Session::get(self::SESSION_KEY, []);
 
         $notification = array_merge([
             'type' => $type,
-            'message' => $message,
             'title' => $title,
             'position' => config('notyfyre.position', 'top-center'),
             'autoClose' => config('notyfyre.auto_close', 3000),

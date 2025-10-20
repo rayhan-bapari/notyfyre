@@ -5,10 +5,10 @@ namespace RayhanBapari\Notyfyre\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \RayhanBapari\Notyfyre\Notyfyre success(string $message, string $title = null, array $options = [])
- * @method static \RayhanBapari\Notyfyre\Notyfyre error(string $message, string $title = null, array $options = [])
- * @method static \RayhanBapari\Notyfyre\Notyfyre warning(string $message, string $title = null, array $options = [])
- * @method static \RayhanBapari\Notyfyre\Notyfyre info(string $message, string $title = null, array $options = [])
+ * @method static \RayhanBapari\Notyfyre\Notyfyre success(string $title, array $options = [])
+ * @method static \RayhanBapari\Notyfyre\Notyfyre error(string $title, array $options = [])
+ * @method static \RayhanBapari\Notyfyre\Notyfyre warning(string $title, array $options = [])
+ * @method static \RayhanBapari\Notyfyre\Notyfyre info(string $title, array $options = [])
  * @method static array getNotifications()
  * @method static void clear()
  * @method static array getAndClear()
